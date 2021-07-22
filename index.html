@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Animations with Lottie</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="svg hide" id="svg"></div>
+        <h1>It's Party Time!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel facere voluptates labore quo nisi?</p>
+        <button>Let's have fun!</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js" integrity="sha512-0bCDSnaX8FOD9Mq8WbHcDwshXwCB5V4EP+UBu87WQgga2b7lAsuEbaSmIZjH/XEmNhJuhrPbFHemre5HZwrk9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script>
+
+        const play = document.querySelector('button');
+        const svgContainer = document.getElementById('svg');
+        const animItem = bodymovin.loadAnimation({
+            wrapper: svgContainer,
+            animType: 'svg',
+            loop: false,
+            autoplay: false,
+            path: 'https://assets9.lottiefiles.com/packages/lf20_u4yrau.json'
+        });
+
+        play.addEventListener('click', () => {
+            animItem.goToAndPlay(0, true);
+        })
+
+    </script>
+</body>
+</html>
